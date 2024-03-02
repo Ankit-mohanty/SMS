@@ -1,14 +1,17 @@
 package org.jt.studentManagementSystem.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.Positive;
 import lombok.RequiredArgsConstructor;
 import org.jt.studentManagementSystem.domain.Student;
 import org.jt.studentManagementSystem.service.StudentService;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ProblemDetail;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -39,6 +42,8 @@ public class StudentController {
 
     @DeleteMapping("/delete/{roll}")
     @Operation(summary = "This API use to delete the data")
+    @ApiResponse(description = "Student Roll not found", content = @Content
+            (schema = @Schema(implementation = ProblemDetail.class)))
     public String deleteByid(@Min(value = 100) @PathVariable int roll) {
         String mesg = "Deleted___Sucessfully";
         studentService.deleteStudent(roll);

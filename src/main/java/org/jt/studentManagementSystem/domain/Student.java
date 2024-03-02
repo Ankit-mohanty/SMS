@@ -1,5 +1,7 @@
 package org.jt.studentManagementSystem.domain;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,10 +12,12 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@JsonPropertyOrder({"studentPhone","studentFee" })
 public class Student {
     @Positive//here it define onle positive number only.Even it did not get ZERO.For Zero we are using Postive or Zero.
     @Min(value = 100)//here we define thye roll should npt be less than 100.
 //    @Size(min = 100,max = 500) // by using this we are specifying this annoation.
+    @JsonAlias("roll")
     private int studentRoll;
     @NotNull//null is not allowed
     @NotEmpty// not empty. it can teke the space beacuse it check the length.
