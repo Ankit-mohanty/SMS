@@ -8,6 +8,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Min;
 import lombok.RequiredArgsConstructor;
+import org.jt.studentManagementSystem.domain.ContactInformation;
 import org.jt.studentManagementSystem.domain.Student;
 import org.jt.studentManagementSystem.service.StudentService;
 import org.springframework.http.HttpStatus;
@@ -24,6 +25,7 @@ import java.util.List;
 // This annotaion change the name student controller in swager web
 public class StudentController {
     private final StudentService studentService;
+    private final ContactInformation contactInformation;
 
     @PostMapping("/insert")
     @ResponseStatus(HttpStatus.CREATED)
@@ -61,5 +63,11 @@ public class StudentController {
     @Operation(summary = "This ia use to get a single data by roll")
     public Student getStudent(@PathVariable int roll) {
         return studentService.getStudent(roll);
+    }
+
+    @GetMapping("/contactInfo")
+    public ContactInformation contactInformation() {
+        System.out.println("Contact controller");
+        return contactInformation;
     }
 }

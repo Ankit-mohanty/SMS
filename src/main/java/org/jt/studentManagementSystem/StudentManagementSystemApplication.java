@@ -3,13 +3,16 @@ package org.jt.studentManagementSystem;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.info.Info;
+import org.jt.studentManagementSystem.domain.ContactInformation;
 import org.jt.studentManagementSystem.domain.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 
 @SpringBootApplication
+@EnableConfigurationProperties(ContactInformation.class)
 /*@OpenAPIDefinition(
 		info = @Info(
                 title = "Student Management System",
@@ -41,3 +44,4 @@ private ObjectMapper objectMapper;*/
 		};
 	}*/
 }
+// confuguration.properties work is to read application properties data.

@@ -1,2 +1,15 @@
 server:
   port: 1200
+
+cserver:
+  port: 1200
+  message: "Server configuration"
+
+contacts:
+  message: "Student contact Information"
+  details:
+    name: "JT"
+    address: "A/47 saheedNagar Bhubaneswar"
+  contactNumber:
+    -+91 8249429325
+    -+91 9439635564
